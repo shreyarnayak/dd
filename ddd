@@ -39,6 +39,15 @@ doLast {
 ------------------------------------------------------
 
 7.
+
+update sys
+sudo apt update
+sudo apt upgrade -y
+
+install ansible:
+sudo apt install ansible -y
+
+
   mkdir ~/ansible-demo 
  
 cd ~/ansible-demo 
@@ -48,7 +57,9 @@ cd ~/ansible-demo
   [local] 
   localhostansible_connection=local
 
-nano install_nginx.yml
+
+creating ansible playbook
+nano server-setup.yml
 
 - name: Install Nginx on Localhost
   hosts: local
