@@ -78,7 +78,7 @@ nano server-setup.yml
 
 Step 4: Run the Playbook Locally
 
-  sudo ansible -playbook -inventory.ini install_nginx.yml
+  sudo ansible -playbook -i inventory.ini install_nginx.yml
 
 
 
