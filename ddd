@@ -1,0 +1,71 @@
+2. hello controller-
+  packagecom.example.myfirstspringbootapp;  
+ 
+importorg.springframework.web.bind.annotation.GetMapping;  
+importorg.springframework.web.bind.annotation.RestController;  
+ 
+ @RestController 
+public class HelloController {  
+ 
+ @GetMapping("/")  
+ public String sayHello() {  
+return "Hello, World!";  
+ }   
+ }  
+
+
+
+
+------------------------------------------------------
+4.
+  plugins { 
+id 'java-library' 
+id 'maven-publish' 
+id 'application' 
+} 
+ 
+application {  
+mainClass = 'com.ppg4.ppg4.App' // Specify the main class here  
+}  
+
+add task-
+  
+  task hello {      
+doLast {  
+ println 'Hello, Gradle!'  
+    }  
+} 
+
+------------------------------------------------------
+
+7.
+  mkdir ~/ansible-demo 
+ 
+cd ~/ansible-demo 
+
+  nano inventory.ini
+
+  [local] 
+  localhostansible_connection=local
+
+nano install_nginx.yml
+
+- name: Install Nginx on Localhost
+  hosts: local
+  become: yes
+  tasks:
+    - name: Install Nginx
+      apt:
+        name: nginx
+        state: present
+
+    - name: Start Nginx Service
+      service:
+        name: nginx
+        state: started
+        enabled: yes
+
+Step 4: Run the Playbook Locally
+
+  sudo ansible -playbook -inventory.ini install_nginx.yml
+  
